@@ -14,10 +14,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class VisionCameraCodeScannerPluginPackage implements ReactPackage {
+
+  static {
+    FrameProcessorPluginRegistry.addFrameProcessorPlugin("scanCodes", options -> new VisionCameraCodeScannerPlugin());
+     }
+
+
   @NonNull
   @Override
   public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactContext) {
-    FrameProcessorPluginRegistry.addFrameProcessorPlugin("scanCodes", options -> new VisionCameraCodeScannerPlugin());
     return Collections.emptyList();
   }
 
